@@ -1,0 +1,62 @@
+<template>
+	<table aria-describedby="conatact-list"  class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+		<!--Header of the table-->
+		<thead>
+			<tr class="slds-line-height_reset">
+
+				<th class="colunas" scope="col">
+					<div class="slds-truncate" title="Prdt">Serviço</div>
+				</th>
+				<th class="colunas" scope="col">
+					<div class="slds-truncate" title="Prdt">Preço</div>
+				</th>
+				<th class="colunas" scope="col">
+					<div class="slds-truncate" title="Quantity">Quantidade</div>
+				</th>
+				<th class="colunas" scope="col">
+					<div class="slds-truncate" title="Total">Total do Serviço</div>
+				</th>
+			</tr>
+		</thead>
+
+		<!--Body of the table-->
+		<tbody>
+			<template for:each={PrdtList} for:item="item" for:index="indexVar">
+				<tr key={item.recId} class="slds-hint-parent">
+					<td class="slds-truncate">
+						<div>
+							{item.ProdName}
+						</div>
+					</td>
+					<td class="slds-truncate">
+						<div>
+							{item.Price}
+						</div>
+					</td>
+					<td class="slds-truncate">
+						<div>
+							<label for="Quantidade">
+								<input type="number"  data-id={item.recId} value={item.Qty}  onchange={handleQtyChange}></input>
+							</label>						
+						</div>
+						<p>{item.Msg}</p>
+					</td>
+					<td class="slds-truncate">
+						<div>
+							{item.Total}
+						</div>
+					</td>
+				</tr>
+			</template>
+		</tbody>
+		<tfoot>
+			<tr class="total">
+				<td>Total</td>
+				<td>{totalVal}</td>
+				<td><label for="Limpar"><button class="slds-button slds-button_neutral" onclick={handleLimpar}>Limpar</button></label></td>
+				<td></td>
+			</tr>
+		</tfoot>
+	</table>
+
+</template>

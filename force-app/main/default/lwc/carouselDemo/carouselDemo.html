@@ -1,0 +1,22 @@
+<template>
+    <lightning-carousel> <!--disable-auto-scroll-->
+        <template if:true={carousel}>
+            <!--Verifica se a variável carousel é verdadeira antes de renderizar o conteúdo interno.-->
+            <template for:each={carousel} for:item="photo">
+                <!--Itera sobre cada elemento do array carousel, atribuindo cada elemento à variável photo.-->
+                <lightning-carousel-image key={photo.id} 
+                    src={photo.src}
+                    header={photo.header} description={photo.description} alternative-text="Test"
+                    onclick={handleImageClick} data-href={photo.href}>
+                    <!--key={photo.id}: Atributo que define uma chave única para a imagem com base no id do objeto photo.
+                    src={photo.src}: Atributo que define a URL da imagem com base no src do objeto photo.
+                    header={photo.header}: Atributo que define o cabeçalho da imagem com base no header do objeto photo.
+                    description={photo.description}: Atributo que define a descrição da imagem com base no description do objeto photo.
+                    alternative-text="Test": Atributo que define o texto alternativo para a imagem como "Test".
+                    onclick={handleImageClick}: Atributo que define o manipulador de evento handleImageClick para ser acionado quando a imagem for clicada.
+                    data-href={photo.href}: Atributo de dados que define o link da imagem com base no href do objeto photo.-->
+                </lightning-carousel-image> <!--Componente do LWC usado para exibir uma imagem no carrossel.-->
+            </template>
+        </template>
+    </lightning-carousel>
+</template>

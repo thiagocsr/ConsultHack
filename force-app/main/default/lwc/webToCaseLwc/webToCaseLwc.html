@@ -1,0 +1,51 @@
+<template>
+    <lightning-card title="Criar Novo Caso" icon-name="action:new_case">
+        <div class="slds-m-around_medium">
+            <!--Div com uma classe de espaçamento médio ao redor dos elementos internos.-->
+            <lightning-record-edit-form object-api-name="Case" onsuccess={handleCaseCreated}
+                onerror={handleError}>
+                <!--Componente de formulário de edição de registro do Lightning que permite criar um novo caso. A propriedade object-api-name é definida com base em opportunityObject, que deve ser uma variável ou valor válido.-->
+                <lightning-messages></lightning-messages>
+                <!--Componente que exibe mensagens de erro ou sucesso relacionadas ao formulário.-->
+                <div class="slds-grid slds-wrap">
+                    <!--Div com uma classe de grade que envolve os elementos internos. A classe slds-wrap faz com que os elementos sejam exibidos em várias linhas, se necessário.-->
+                    <div class="slds-col slds-size_1-of-1">
+                        <!--Div que ocupa uma coluna inteira na grade.-->
+                       <lightning-input-field field-name={ContactId}></lightning-input-field> 
+                        <!--Componente de campo de entrada do Lightning que está vinculado ao campo ContactId. Isso permite ao usuário inserir o nome do Caso-->
+
+                        <lightning-input-field field-name={AccountId}></lightning-input-field>
+                        <!--Componente de campo de entrada do Lightning que está vinculado ao campo AccountId. Isso permite ao usuário inserir o nome da Conta-->
+
+                        <lightning-input-field field-name={Type}></lightning-input-field>
+                        <!--Componente de campo de entrada do Lightning que está vinculado ao campo EmailField. Isso permite ao usuário selecionar o Tipo-->
+
+                        <lightning-input-field field-name={Etapa__c}></lightning-input-field>
+                        <!--Componente de campo de entrada do Lightning que está vinculado ao campo Etapa__c. Isso permite ao usuário inserir a etapa do atendimento. -->
+
+                        <lightning-input-field field-name={Origin}></lightning-input-field>
+                        <!--Componente de campo de entrada do Lightning que está vinculado ao campo Origin. Isso permite ao usuário inserir E-mail ou Telefone.-->
+
+                        
+                        <lightning-input-field field-name={Subject}></lightning-input-field>
+                        <!--Componente de campo de entrada do Lightning que está vinculado ao campo Subject. Isso permite ao usuário inserir Estado. -->
+
+                        <lightning-input-field field-name={Description}></lightning-input-field>
+                        <!--Componente de campo de entrada do Lightning que está vinculado ao campo Description. Isso permite ao usuário inserir a descrição do caso. -->
+
+                        <lightning-input-field field-name={Comments}></lightning-input-field>
+                        <!--Componente de campo de entrada do Lightning que está vinculado ao campo Comments. Isso permite ao usuário inserir comentários internos.-->
+                        
+                    </div>
+                </div>
+
+                <lightning-button label="Limpar" onclick={handleReset} class="slds-m-right_xx-small"></lightning-button>
+                <!--Componente de botão do Lightning com o rótulo "Limpar". O atributo onclick está associado a uma função handleReset que será executada quando o botão for clicado. A classe slds-m-right_xx-small adiciona um espaçamento à direita pequeno ao botão.-->
+                <lightning-button label="Criar Caso" type="submit" variant="brand"
+                    class="slds-m-right_xx-small"></lightning-button>
+                <!--Componente de botão do Lightning com o rótulo "Criar Caso". Este botão é do tipo "submit" e tem o estilo "brand". A classe slds-m-right_xx-small adiciona um espaçamento à direita pequeno ao botão.-->
+
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>

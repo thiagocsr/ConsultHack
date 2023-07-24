@@ -1,0 +1,43 @@
+public class OportunidadeGanhaAcima10k {
+
+    //Aqui eu crio as variáveis que serão usadas nas validações
+    //E também as constantes com os valores absolutos 'MAX_OPP_AMOUNT' e 'WIN_OPP_STAGENAME'
+    private List<Opportunity> m_listDataNew;
+    private List<Opportunity> m_listFiltered = new List<Opportunity>();
+    private Boolean hasRecords;
+    final Double MAX_OPP_AMOUNT = 10000;
+    final String WIN_OPP_STAGENAME = 'Contrato Assinado';
+
+    //O construtor recebe uma lista de oportunidades
+    //E atrela essa lista á lista criada localmente
+    //Então chama o metodo filter
+    //E checa se alguma oportunidade atendeu as condições do filter
+    public OportunidadeGanhaAcima10k(List<Opportunity> lstDataNew){
+        this.m_listDataNew = lstDataNew;
+        filter();
+        this.hasRecords = !m_listFiltered.isEmpty();
+        
+    }
+    
+    //Aqui eu filtro entre todas as oportunidades
+    //As que atenderem as condições serão adicionadas numa nova lista 
+    private void filter(){
+        for(Opportunity opp : m_listDataNew){
+            if(opp.Amount > MAX_OPP_AMOUNT || opp.StageName == WIN_OPP_STAGENAME){
+                m_listFiltered.add(opp);
+            } 
+            
+        }
+        
+    }
+
+    //Por fim o método run, que só executa se alguma oportunidade atendeu as condições
+    //E chama do método 'criaTarefaRelacionada' que está na classe 'OpportunityBO'
+    public void run(){
+        if(hasRecords){
+            OpportunityBO.criaTarefaRelacionada(m_listFiltered);
+        }
+
+    }  
+
+}

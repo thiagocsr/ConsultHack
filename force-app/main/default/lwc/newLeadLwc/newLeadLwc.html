@@ -1,0 +1,53 @@
+<template>
+    <lightning-card title="Crie um Novo Lead" icon-name="action:new_lead">
+        <div class="slds-m-around_medium">
+            <!--Div com uma classe de espaçamento médio ao redor dos elementos internos.-->
+            <lightning-record-edit-form object-api-name={leadObject} onsuccess={handleLeadCreated}
+                onerror={handleError}>
+                <!--Componente de formulário de edição de registro do Lightning que permite criar uma nova oportunidade. A propriedade object-api-name é definida com base em opportunityObject, que deve ser uma variável ou valor válido.-->
+                <lightning-messages></lightning-messages>
+                <!--Componente que exibe mensagens de erro ou sucesso relacionadas ao formulário.-->
+                <div class="slds-grid slds-wrap">
+                    <!--Div com uma classe de grade que envolve os elementos internos. A classe slds-wrap faz com que os elementos sejam exibidos em várias linhas, se necessário.-->
+                    <div class="slds-col slds-size_1-of-1">
+                        <!--Div que ocupa uma coluna inteira na grade.-->
+                        <lightning-input-field field-name={NameField}></lightning-input-field>
+                        <!--Componente de campo de entrada do Lightning que está vinculado ao campo nameField. Isso permite ao usuário inserir o nome do Lead-->
+
+                        <lightning-input-field field-name={CPF__cField}></lightning-input-field>
+                        <!--Componente de campo de entrada do Lightning que está vinculado ao campo CPF__cField. Isso permite ao usuário inserir o CPF-->
+
+                        <lightning-input-field field-name={EmailField}></lightning-input-field>
+                        <!--Componente de campo de entrada do Lightning que está vinculado ao campo EmailField. Isso permite ao usuário selecionar o Email-->
+
+                        <lightning-input-field field-name={MobilePhoneField}></lightning-input-field>
+                        <!--Componente de campo de entrada do Lightning que está vinculado ao campo MobilePhoneField. Isso permite ao usuário inserir celular.-->
+
+                        <lightning-input-field field-name={CityField}></lightning-input-field>
+                        <!--Componente de campo de entrada do Lightning que está vinculado ao campo CityField. Isso permite ao usuário inserir cidade. -->
+
+                        <lightning-input-field field-name={StateField}></lightning-input-field>
+                        <!--Componente de campo de entrada do Lightning que está vinculado ao campo StateField. Isso permite ao usuário inserir Estado. -->
+
+                        <lightning-input-field field-name={CompanyField}></lightning-input-field>
+                        <!--Componente de campo de entrada do Lightning que está vinculado ao campo CompanyField. Isso permite ao usuário inserir Empresa. -->
+
+                        <lightning-input-field field-name={Tipo_de_Projeto__cField}></lightning-input-field>
+                        <!--Componente de campo de entrada do Lightning que está vinculado ao campo Tipo_de_Projeto__cField. Isso permite ao usuário selecionar o tipo de projeto.-->
+                        <!--
+                        <lightning-input-field field-name={RecordTypeIdField}></lightning-input-field>-->
+                        <!--Componente de campo de entrada do Lightning que está vinculado ao campo RecordTypeIdField. Isso permite ao usuário escolher CPF ou CNPJ.-->
+                    </div>
+                </div>
+                <div class="slds-grid slds-grid_vertical-align-center slds-grid_align-end">
+                    <lightning-button label="Limpar" onclick={handleReset}
+                        class="slds-m-right_xx-small"></lightning-button>
+                    <!--Componente de botão do Lightning com o rótulo "Limpar". O atributo onclick está associado a uma função handleReset que será executada quando o botão for clicado. A classe slds-m-right_xx-small adiciona um espaçamento à direita pequeno ao botão.-->
+                    <lightning-button label="Criar Lead" type="submit" variant="brand"
+                        class="slds-m-right_xx-small"></lightning-button>
+                    <!--Componente de botão do Lightning com o rótulo "Criar Oportunidade". Este botão é do tipo "submit" e tem o estilo "brand". A classe slds-m-right_xx-small adiciona um espaçamento à direita pequeno ao botão.-->
+                </div>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>

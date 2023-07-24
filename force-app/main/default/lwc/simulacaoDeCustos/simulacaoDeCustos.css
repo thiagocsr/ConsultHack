@@ -1,0 +1,21 @@
+.colunas{
+    background-color: rgb(74, 74, 236);
+    color: white;
+    font-weight: bolder;
+}
+
+.total{
+    background-color: rgb(74, 74, 236);
+    color: white;
+    font-weight: bolder;
+} 
+
+.botao{
+    border-radius: 1%;
+    color: rgb(74, 74, 236);
+}
+
+p{
+    color: Red;
+    font-weight: bolder;
+}

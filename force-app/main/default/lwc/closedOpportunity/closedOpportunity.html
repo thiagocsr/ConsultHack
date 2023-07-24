@@ -1,0 +1,39 @@
+<template>
+    <lightning-card title="Lista de Oportunidades Fechadas">
+        <div class="slds-m-around_small">
+            <template if:true={Opportunity.data}> <!--Inicia uma diretiva condicional if:true que verifica se Opportunity.data é verdadeiro.-->
+                <table class="tab">
+                    <thead class="tabela">
+                        <tr class="titulo"> <!--Cria uma linha de título com as colunas "Nome", "Valor", "Fase" e "Criado".-->
+                            <th>Nome</th>
+                            <th>Valor</th>
+                            <th>Fase</th>
+                            <th>Criado</th>                                          
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={Opportunity.data} for:item="Opp">
+                        <!--Inicia um loop for:each que percorre Opportunity.data e define o alias Opp para cada item.-->
+                            <tr key={Opp.Id}> <!--Cria uma linha da tabela com uma chave única definida por Opp.Id.-->
+                                <th>{Opp.Name}</th>
+                                <th>{Opp.Amount}</th>
+                                <th>{Opp.StageName}</th>
+                                <th>
+                                    <lightning-formatted-date-time 
+                                        value={Opp.CreatedDate} 
+                                        year="numeric" 
+                                        month="2-digit" 
+                                        day="2-digit" 
+                                        hour="2-digit" 
+                                        minute="2-digit"
+                                    >.</lightning-formatted-date-time>
+                                    <!--Define as células da linha com os valores Opp.Name, Opp.Amount, Opp.StageName e um componente <lightning-formatted-date-time> que formata a data e hora de Opp.CreatedDate.-->
+                                </th>
+                            </tr> 
+                        </template>                                   
+                    </tbody>
+                </table>
+            </template>
+        </div>
+    </lightning-card> 
+</template>
